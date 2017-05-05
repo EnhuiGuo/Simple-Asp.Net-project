@@ -1,0 +1,47 @@
+﻿@model SquareDanceASP.Models.SitterSearchModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="container">
+    <div class="row">
+        <div id="mapDiv" class="col-xs-6 col-sm-6 col-md-6" data-spy="affix" data-offset-top="70">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+        <div id="sitterListDiv" class="col-xs-6 col-sm-6 col-md-6 pull-right" style="margin-top:20px;">
+            <div class="panel panel-default" style="border:unset">
+                <div class="panel-body" style="padding:unset;">
+                    @if (Model.Sitters != null && Model.Sitters.Count > 0)
+                    {
+                        foreach (var sitter in Model.Sitters)
+                        {
+                            <div id="@sitter.UserId" class="list-group-item sitter-row" data-sitter-id="@sitter.UserId" style="color:black;padding-left:20px;">
+                                <div class="row">
+                                    <a href="/Sitter/Detail?sitterid=@sitter.UserId" class="sitter-link">
+                                        <div>@sitter.Name</div>
+                                        <div>@sitter.Address</div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var sitters = @Html.Raw(Json.Encode(Model.Sitters));
+    var mapLat = @Html.Raw(Json.Encode(Model.AddressLatitude));
+    var mapLong = @Html.Raw(Json.Encode(Model.AddressLongitude));
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/squareDance.search.js")
+}

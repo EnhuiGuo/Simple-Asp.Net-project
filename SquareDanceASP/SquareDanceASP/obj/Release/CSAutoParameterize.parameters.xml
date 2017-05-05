@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="SquareDanceDb-Web.config Connection String" description="SquareDanceDb Connection String used in web.config by the application to access the database." defaultValue="Data Source=tcp:s15.winhost.com;Initial Catalog=DB_104177_pet;User ID=DB_104177_pet_user;Password=G19891212;Integrated Security=False;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\chengxu\\PetHost\\SquareDanceASP\\SquareDanceASP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SquareDanceDb']/@connectionString" />
+  </parameter>
+</parameters>

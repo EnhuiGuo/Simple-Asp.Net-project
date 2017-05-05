@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="liar114.com" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\chengxu\\PetHost\\SquareDanceASP\\SquareDanceASP\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\chengxu\\PetHost\\SquareDanceASP\\SquareDanceASP\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="SquareDanceDb-Web.config Connection String" description="" value="Data Source=tcp:s15.winhost.com;Initial Catalog=DB_104177_pet;User ID=DB_104177_pet_user;Password=G19891212" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\chengxu\\PetHost\\SquareDanceASP\\SquareDanceASP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SquareDanceDb']/@connectionString" />
+  </parameter>
+</parameters>

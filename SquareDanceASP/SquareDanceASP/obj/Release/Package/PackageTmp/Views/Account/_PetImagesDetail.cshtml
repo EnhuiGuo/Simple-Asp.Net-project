@@ -1,0 +1,40 @@
+﻿@model SquareDanceASP.Models.PetModel
+
+
+<div class="row">
+    @if (Model.PetImages != null && Model.PetImages.Count > 0)
+    {
+        <div class="col-sm-12 col-md-12">
+            @for (var i = 0; i < Model.PetImages.Count; i++)
+            {
+                <div class="image-delete col-sm-6 col-md-3" style="display:inline;padding:unset;">
+                    <img src="@Model.PetImages[i].Path" class="hover-shadow cursor image-column" alt="@Model.PetImages[i].Name" onclick="openModal(); currentSlide(@i+1)" style="width:100%" />
+                    <button type="button" class="fa fa-trash-o fa-2x" title="删除这个照片" data-image-id="@Model.PetImages[i].Id" onclick="deleteImage(this)"></button>
+                </div>
+            }
+        </div>
+
+        <div id="imageModel" class="image-modal">
+            <span class="image-close cursor" onclick="closeModal()">&times;</span>
+            <div class="image-modal-content">
+
+                @for (var i = 0; i < Model.PetImages.Count; i++)
+                {
+                    <div class="image-slides">
+                        <div class="image-numberText">@(i+1) / @Model.PetImages.Count</div>
+                        <img src="@Model.PetImages[i].Path" class="image-pic" data-image-id="@Model.PetImages[i].Id" />
+                    </div>
+                }
+
+                <a class="image-prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="image-next" onclick="plusSlides(1)">&#10095;</a>
+
+                @for (var i = 0; i < Model.PetImages.Count; i++)
+                {
+                    <img class="image-trumb image-column" style="float:left;width:25%;" src="@Model.PetImages[i].Path" onclick="currentSlide(@i+1)" data-image-id="@Model.PetImages[i].Id" alt="@Model.PetImages[i].Name">
+                }
+
+            </div>
+        </div>
+    }
+</div>

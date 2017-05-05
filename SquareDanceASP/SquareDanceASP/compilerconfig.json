@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Content/Site.css",
+    "inputFile": "Content/Site.scss"
+  },
+  {
+    "outputFile": "Content/image-model-slider.css",
+    "inputFile": "Content/image-model-slider.scss"
+  },
+  {
+    "outputFile": "Content/switch.css",
+    "inputFile": "Content/switch.scss"
+  }
+]

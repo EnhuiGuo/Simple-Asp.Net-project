@@ -1,0 +1,69 @@
+﻿@model SquareDanceASP.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<div class="sign-up-box">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h2 class="text-center" style="font-size:17px">注册牵手广场舞,分享精彩世界</h2>
+        @Html.ValidationMessage("Register", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-12" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control"})
+                @Html.ValidationMessageFor(x => x.UserName, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-12" })
+            <div class="col-md-12">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-12" })
+            <div class="col-md-12">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Password, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-12" })
+            <div class="col-md-12">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassword, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(m => m.BirthDay, new { @class = "col-md-12" })
+            <div class="col-md-12">
+                @Html.EditorFor(m => m.BirthDay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.BirthDay, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group" role="form">
+            <div class="col-md-12">
+                <label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.Sex, "Male", new { @checked = true }) 男
+                </label>
+                <label class="radio-inline">
+                    @Html.RadioButtonFor(m => m.Sex, "Female") 女
+                </label>
+            </div>
+            <div class="col-md-12">
+                @Html.ValidationMessageFor(x => x.Sex, null, new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,6 @@
+﻿@model SquareDanceASP.Models.PetImageModel
+
+<div class="show-image" style="display:inline" data-image="@Model.Name">
+    <img src="data:image/jpeg;base64,@Model.Data" name="@Model.Name" style="width:82px;height:80px;margin-right:2px;margin-bottom:7px;" />
+    <button type="button" class="close" data-image="@Model.Name" onclick="deleteImage(this)">&times;</button>
+</div>

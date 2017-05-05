@@ -1,0 +1,155 @@
+﻿@model SquareDanceASP.Models.PetModel
+
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">修改狗狗信息</h4>
+    </div>
+    @using (Html.BeginForm("EditPet", "Account", FormMethod.Post, new { @id = "editDogForm", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        <div class="modal-body">
+            <div class="col-md-12">
+                @Html.ValidationMessage("AddDog", new { @id = "errorMessage", @class = "text-danger" })
+                <input class="hidden" type="text" name="Id" value="@Model.Id" />
+                <input class="hidden" type="text" name="UserId" value="@Model.UserId" />
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Breed, new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.Breed, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Breed, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Weight, new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.Weight, new { @class = "form-control", @type = "number", @min = "0", @step = "0.01" })
+                        @Html.ValidationMessageFor(x => x.Weight, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Years, new { @class = "col-md-12" })
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(x => x.Years, new { @class = "form-control", @type = "number", @min = "0" })
+                        @Html.ValidationMessageFor(x => x.Years, null, new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x=>x.Sex, "Male") 公
+                            @*<input type="radio" name="Sex" value="Male" checked />公*@
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.Sex, "Famale") 母
+                            @*<input type="radio" name="Sex" value="Famale" />母*@
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">您的宠物做了阉割手术么？</label>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.Spayed, "true") Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.Spayed, "false") No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">您的宠物装了芯片么？</label>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.Microchipped, "true") Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.Microchipped, "false") No
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">宠物简介</label>
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(x=>x.Description, new { @style= "width:280px;" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">您的宠物能和别的狗狗和平相处么？</label>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.WellDogs, "true") Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.WellDogs, "false") No
+                        </label>
+                        <div style="margin-top:10px;">
+                            @Html.TextAreaFor(x => x.WellDogDetail, new { @style = "width:280px;", @placeholder = "額外細節" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">您的宠物能和猫咪和平相处么？</label>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.WellCats, "true") Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.WellCats, "false") No
+                        </label>
+                        <div style="margin-top:10px;">
+                            @Html.TextAreaFor(x => x.WellCatDetail, new { @style = "width:280px;", @placeholder = "額外細節" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">您的宠物能和小孩和平相处么？</label>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.WellChild, "true") Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.WellChild, "false") No
+                        </label>
+                        <div style="margin-top:10px;">
+                            @Html.TextAreaFor(x => x.WellChildDetail, new { @style = "width:280px;", @placeholder = "額外細節" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">您的宠物受过家庭训练么？</label>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.HouseTrained, "true") Yes
+                        </label>
+                        <label class="radio-inline">
+                            @Html.RadioButtonFor(x => x.HouseTrained, "false") No
+                        </label>
+                        <div style="margin-top:10px;">
+                            @Html.TextAreaFor(x => x.HouseTrainedDetail, new { @style = "width:280px;", @placeholder = "額外細節" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12">宠物的其他细节或注意事项</label>
+                    <div class="col-md-12">
+                        @Html.TextAreaFor(x => x.SpecialRequirement, new { @style = "width:280px;" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input id="saveDogBtn" type="submit" class="btn btn-success" value="存储" title="存储宠物信息" />
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+    }
+</div>

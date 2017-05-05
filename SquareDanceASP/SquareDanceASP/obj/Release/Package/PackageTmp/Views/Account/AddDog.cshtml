@@ -1,0 +1,177 @@
+﻿@model SquareDanceASP.Models.PetModel
+
+@{
+    ViewBag.Title = "添加宠物";
+}
+
+
+<div class="container">
+    <div class="row" style="margin-top:20px;">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                添加宠物
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("AddDog", "Account", FormMethod.Post, new { @id = "addDogForm", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                {
+                    <div class="col-md-12">
+                        @Html.ValidationMessage("AddDog", new { @id = "errorMessage", @class = "text-danger" })
+                        <input class="hidden" type="text" name="UserId" value="@Model.UserId" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Name, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Breed, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Breed, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Breed, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Weight, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Weight, new { @class = "form-control", @type = "number", @min = "0", @step = "0.01" })
+                                @Html.ValidationMessageFor(x => x.Weight, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Years, new { @class = "col-md-12" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Years, new { @class = "form-control", @type = "number", @min = "0" })
+                                @Html.ValidationMessageFor(x => x.Years, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="Sex" value="Male" checked />公
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Sex" value="Famale" />母
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">您的宠物做了阉割手术么？</label>
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="Spayed" value="true" checked />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Spayed" value="false" />No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">您的宠物装了芯片么？</label>
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="Microchipped" value="true" checked />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="Microchipped" value="false" />No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">宠物简介</label>
+                            <div class="col-md-12">
+                                <textarea name="Description" style="width:280px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-12">您的宠物能和别的狗狗和平相处么？</label>
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="WellDogs" value="true" checked />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="WellDogs" value="false" />No
+                                </label>
+                                <div style="margin-top:10px;">
+                                    <textarea name="WellDogDetail" placeholder="額外細節" style="width:280px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">您的宠物能和猫咪和平相处么？</label>
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="WellCats" value="true" checked />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="WellCats" value="false" />No
+                                </label>
+                                <div style="margin-top:10px;">
+                                    <textarea name="WellCatDetail" placeholder="額外細節" style="width:280px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">您的宠物能和小孩和平相处么？</label>
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="WellChild" value="true" checked />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="WellChild" value="false" />No
+                                </label>
+                                <div style="margin-top:10px;">
+                                    <textarea name="WellChildDetail" placeholder="額外細節" style="width:280px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">您的宠物受过家庭训练么？</label>
+                            <div class="col-md-12">
+                                <label class="radio-inline">
+                                    <input type="radio" name="HouseTrained" value="true" checked />Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="HouseTrained" value="false" />No
+                                </label>
+                                <div style="margin-top:10px;">
+                                    <textarea name="HouseTrainedDetail" placeholder="額外細節" style="width:280px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">宠物的其他细节或注意事项</label>
+                            <div class="col-md-12">
+                                <textarea name="SpecialRequirement" style="width:280px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="imgGallery" class="form-group col-md-12" style="margin-top:10px;"></div>
+
+                        <div style="margin-top:10px">
+                            <div id="picGroup" class="input-group">
+                                <label class="input-group-btn">
+                                    <span id="uploadImageBtn" class="btn btn-primary">
+                                        上传图片&hellip; <input type="file" id="fileUpload" style="display:none" name="files" multiple>
+                                    </span>
+                                </label>
+                                <input id="picName" type="text" class="form-control" style="max-width:184px;" readonly>
+                            </div>
+                        </div>
+                        <input id="saveDogBtn" type="button" class="btn btn-success" value="存储" style="margin-top:10px" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/squareDance.saveDog.js")
+}

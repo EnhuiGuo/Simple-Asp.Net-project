@@ -1,0 +1,25 @@
+﻿@model SquareDanceASP.Models.UserListModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<form action="/Sitter/Search" method="get">
+    <div class="row" style="margin-top:20px;">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="input-group searchBar" style="width:100%;max-width:unset">
+                    <input id="addressBar" type="text" name="address" class="form-control" placeholder="请输入地址或者邮编号码" />
+                    <span class="input-group-btn">
+                        <button id="searchBtn" class="btn btn-secondry" type="submit" title="搜索在这个地址附近的寄宿家庭"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/squareDance.homePage.js")
+}
+

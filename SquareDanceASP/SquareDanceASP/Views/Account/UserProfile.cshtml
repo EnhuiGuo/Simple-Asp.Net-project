@@ -1,0 +1,130 @@
+﻿@model SquareDanceASP.Models.UserProfileModel
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<div class="row" style="margin-top:20px;min-width:666px;">
+    <div id="userInfo" style="width:30%;float:left">
+        <div style="margin-top:15px;">
+            <div id="userImageDiv">
+                <img id="userImage" src="@Model.ProfileImagePath" class="img-rounded"/>
+                <button id="userImageUpdateBtn" class="fa fa-upload fa-x" title="修改您的头像" data-toggle="modal" data-target="#userImageModal"></button>
+            </div>
+        </div>
+        <div id="userDetail">
+            <div style="margin-top:15px">
+                <span>名字:</span>
+                <span>@Model.Name</span>
+            </div>
+            <div style="margin-top:15px">
+                <span>地址:</span>
+                <span>@Model.Address</span>
+            </div>
+            <div style="margin-top:15px">
+                <span>电话:</span>
+                <span>@Model.Phone</span>
+            </div>
+            <div style="margin-top:15px">
+                <span>微信:</span>
+                <span>@Model.WeChat</span>
+            </div>
+            <button id="editBtn" class="btn btn-default" style="margin-top:15px;" data-toggle="modal" data-target="#editUserModal" title="编辑您的信息">
+                <i class="fa fa-edit fa-lg"></i> 编辑
+            </button>
+        </div>
+    </div>
+    <div id="dogInfo" style="width:70%;float:right">
+        <br />
+        <button id="addPetBtn" class="btn btn-default" style="margin-left:15px" title="添加一只新的宠物在您的主页">
+            <i class="fa fa-paw fa-lg"></i> 添加狗
+        </button>
+        <br />
+        @if (Model.Sitter)
+        {
+            <button id="becomeSitterBtn" class="btn btn-default" style="margin-left:15px" title="编辑寄宿资料">
+                <i class="fa fa-heart-o fa-lg"></i> 编辑sitter
+            </button>
+        }
+        else
+        {
+            <button id="becomeSitterBtn" class="btn btn-default" style="margin-left:15px" title="成为一个新的宠物寄宿家庭">
+                <i class="fa fa-heart-o fa-lg"></i> 成为sitter
+            </button>
+        }
+
+        <br />
+        @foreach (var pet in Model.Pets)
+        {
+            <div style="margin-bottom:20px;width:50%;float:left">
+                <div class="ih-item circle colored effect13 from_left_and_right">
+                    <a href="@Url.Action("PetDetail","Account", new { petId = pet.Id})">
+                        <div class="img">
+                            @if (pet.PetImages.Count > 0)
+                            {
+                                <img src="@pet.PetImages.FirstOrDefault().Path" alt="img">
+                            }
+                            else
+                            {
+                                <img src="http://www.liar114.com/Pic/1882952289_379a7c6f-761b-49e4-b73f-7b241d977862image.jpeg" alt="img">
+                            }
+                        </div>
+                        <div class="info">
+                            <div class="info-back">
+                                <h3>@pet.Name</h3>
+                                <p>清风明月偷我心</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        <br />
+    </div>
+</div>
+
+<div class="modal fade" id="editUserModal" role="dialog">
+    <div class="modal-dialog">
+        @Html.Action("_UserProfileEdit")
+    </div>
+</div>
+
+<div class="modal fade" id="userImageModal">
+    <div class="modal-dialog">
+@using (Html.BeginForm("UpdateProfileImage", "Account", FormMethod.Post, new { @id = "profileImageForm", @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">上传图片</h4>
+        </div>
+
+        <div class="modal-body">
+            <p>Modal body text goes here.</p>
+            <p id="imageError" class="text-danger"></p>
+            <div id="updateImage">
+
+            </div>
+            <div style="margin-top:10px">
+                <div id="picGroup" class="input-group">
+                    <label class="input-group-btn">
+                        <span id="uploadImageBtn" class="btn btn-primary">
+                            上传图片&hellip; <input type="file" id="fileUpload" style="display:none" name="files">
+                        </span>
+                    </label>
+                    <input id="picName" type="text" class="form-control" style="max-width:184px;" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+}
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/squareDance.userProfile.js")
+}

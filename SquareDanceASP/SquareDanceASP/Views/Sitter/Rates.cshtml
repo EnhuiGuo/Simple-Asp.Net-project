@@ -1,0 +1,113 @@
+﻿@model SquareDanceASP.Models.RateModel
+
+@{
+    ViewBag.Title = "Rates";
+}
+
+<h2>Rates</h2>
+
+@using (@Html.BeginForm("Rates", "Sitter", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container" style="padding:0px;">
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DogBoardingFee</h4>
+                <p>
+                    客户宠物在家过夜的价格
+                </p>
+            </div>
+            <div class="col-xs-5" style="margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.DogBoardingFee, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.DogBoardingFee, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCareFee</h4>
+                <p>
+                    客户宠物只是白天在家的价格，不用过夜
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.DoggyDayCareFee, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.DoggyDayCareFee, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DogWalkingFee</h4>
+                <p>
+                    每30分钟遛狗的价格
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.DogWalkingFee, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.DogWalkingFee, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DropInVisitsFee</h4>
+                <p>
+                    白天去客户家里若干次照顾宠物，每次30分钟。价格。
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.DropInVisitsFee, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.DropInVisitsFee, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>HouseSittingFee</h4>
+                <p>
+                    去客户家里照顾狗狗的价格。
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.HouseSittingFee, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.HouseSittingFee, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <input class="col-xs-11 btn btn-info" type="submit" value="next" />
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

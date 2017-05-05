@@ -1,0 +1,394 @@
+﻿@mixin border-radius($radius: 20px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    overflow-x: scroll;
+    background-color:#f6f6f1;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.sign-up-box {
+    background-color: #f1f1f1;
+    padding: 30px 50px;
+    max-width: 380px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #726969;
+    font-weight: 600;
+}
+
+#loginDiv {
+    background-color: #f1f1f1;
+    padding: 30px 50px;
+    margin-top: 50px;
+    height: 280px;
+}
+
+#CreateDiv {
+    color: white;
+    background-color: #1f92d5;
+    padding: 30px 50px;
+    margin-top: 50px;
+    height: 280px;
+}
+
+.navbar {
+    background-color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #1f92d5;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #1f92d5;
+}
+
+#NavBtn {
+    background-color: salmon;
+}
+
+#DengLuTuBiao {
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: #1f92d5;
+    border-radius: 50%;
+    line-height: 40px;
+    padding-left: 12px;
+    font-size: 20px;
+    margin-top: 6px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.navbar-header {
+    float: left;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+#logoutForm {
+    float: right;
+}
+
+.dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.searchBar {
+    float: left;
+    width: 40%;
+    margin-top: 8px;
+    max-width: 400px;
+}
+
+.searchBar .form-control {
+    max-width: unset;
+}
+
+#headBar {
+    background-color: #fff;
+    border-bottom: 1px solid #dfe4e5;
+}
+
+#headBar .container {
+    max-width: unset;
+}
+
+#headBar .navbar-header {
+    width: 20%;
+}
+
+.navbar-nav {
+    float: right;
+    margin: 0;
+}
+
+.navbar-nav > li {
+    float: right;
+}
+
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#UploadBtn {
+    color: white;
+    /*background-color:#1f92d5;*/
+    background-color: #2489b6;
+    border-color: #c3bb7c;
+    padding: 10px 20px;
+    margin-top: 4px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile-4 + label {
+    color: #d3394c;
+    margin-top: 65px;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.88rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.inputfile-4 + label figure {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d3394c;
+    display: block;
+    padding: 20px;
+    margin: 0 auto 10px;
+}
+
+.inputfile-4 + label svg {
+    width: 100%;
+    height: 100%;
+    fill: #f1e5e6;
+}
+
+.inputfile + label svg {
+    vertical-align: middle;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.inputfile-4:focus + label, .inputfile-4.has-focus + label, .inputfile-4 + label:hover {
+    color: #722040;
+}
+
+.modal {
+    overflow-y: auto;
+}
+
+body.modal-open {
+    margin-right: inherit;
+    overflow: scroll;
+}
+
+.modal-open .navbar-fixed-top {
+    margin-right: inherit;
+}
+
+.center {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+}
+
+div.show-image {
+    position: relative;
+    margin-left: 5px;
+}
+
+div.show-image:hover img {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+div.show-image:hover button {
+    display: block;
+}
+
+div.show-image button {
+    position: absolute;
+    opacity: 0.7;
+    display: none;
+}
+
+div.show-image button.close {
+    top: -35px;
+    left: 79%;
+}
+
+#userInfo, #dogInfo {
+    @include border-radius;
+}
+
+.pet-row {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.yuan-icon {
+    width:unset;
+    background-color:#1f92d5;
+    color:white;
+    border-color:#1f92d5;
+}
+
+.pac-container {
+    z-index: 100000;
+}
+
+#map {
+    height: 400px;
+    padding:10px;
+}
+
+.affix-top {
+    margin-top:20px;
+}
+
+.affix {
+    margin-top:unset;
+}
+
+.sitter-link:link,
+.sitter-link:visited,
+.sitter-link:hover,
+.sitter-link:active {
+    text-decoration: none;
+    color:black;
+}
+
+.sitter-row:hover {
+    background-color:aqua;
+}
+
+.sitter-div {
+    padding:15px;
+    margin:20px;
+    background-color:#fff;
+}
+
+.sitter-detail-div {
+    margin:20px;
+}
+
+.sitter-profile-div {
+    margin:unset;
+    margin-top:8px;
+    padding:15px;
+}
+
+#userImageDiv {
+    width:120px;
+}
+
+#userImage {
+    width: 120px;
+    height: 120px;
+    margin-left: 15px;
+}
+
+#userImageUpdateBtn {
+    position: relative;
+    opacity: 0;
+    transition: opacity .35s ease;
+    left:18px;
+    top:-23px;
+}
+
+#userImageDiv:hover #userImageUpdateBtn {
+    opacity: 0.7;
+}
+
+@media(max-width:446px) {
+    #headBar .navbar-header {
+        width: 40%;
+    }
+
+    .searchBar {
+        width: 50%;
+    }
+
+    #DengLuTuBiao {
+        margin-right: 0px;
+    }
+
+    #UploadBtn {
+        display: none;
+    }
+
+    #loginLink {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #mapDiv {
+        display: none;
+    }
+
+    #sitterListDiv {
+        width: 100%;
+    }
+}
+
+@media(max-width:450px) {
+    .sign-up-box {
+        background-color: #ffffff;
+    }
+}
+
+@media(max-width:647px) {
+    #headBar .navbar-header {
+        width: 30%;
+    }
+}
+
+@media(max-width:991px) {
+    #CreateDiv {
+        background-color: #f1f1f1;
+        color: black;
+    }
+
+    .sitter-profile-div {
+        display: none;
+    }
+}
+
+@media(min-width:991px) {
+
+    #sitterProfileLeftDiv {
+        display: none;
+    }
+}

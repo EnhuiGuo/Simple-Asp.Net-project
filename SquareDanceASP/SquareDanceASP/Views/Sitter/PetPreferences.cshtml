@@ -1,0 +1,208 @@
+﻿@model SquareDanceASP.Models.PetPreferencesModel
+
+
+<h2>PetPreferences</h2>
+
+@using (@Html.BeginForm("SavePetPreferences", "Sitter", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container" style="padding:0px;">
+        @Html.HiddenFor(m => m.UserId)
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>你可以照顾小型犬么？</h4>
+                <p>
+                    小型犬是體型較小的狗狗，長大體型也維持在很小。雖然小型犬的身材嬌小，就像是個頑皮的孩子，讓人疼愛。
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.BoardingSmallDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>你可以照顾中型犬么</h4>
+                <p>
+                    HouseSitting DogBoarding DogBoarding DogBoarding DogBoarding
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.BoardingMediumDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>你可以照顾大型犬么</h4>
+                <p>
+                    HouseSitting DogBoarding DogBoarding DogBoarding DogBoarding
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.BoardingLargeDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>你可以照顾巨型犬么</h4>
+                <p>
+                    HouseSitting DogBoarding DogBoarding DogBoarding DogBoarding
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.BoardingGiantDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>你可以照顾小于1岁的狗狗么</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.BoardingUnderOne)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>您可以同时照顾几个不用家庭的狗狗么？</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HostDifferentFamily)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HostMaleNotNeutered)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HostFemaleNotSpayed)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HostNeedCrateTrained)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HouseSmallDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HouseMediumDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HouseLargeDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HouseGiantDog)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare DoggyDayCare
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HouseUnderOne)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <input class="col-xs-11 btn btn-info" type="submit" value="完成" />
+    </div>
+}

@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+    <ul class="nav" style="margin:0px;width:30%;">
+        <li class="dropdown" style="height:50px;">
+            <i id="DengLuTuBiao" class="fa fa-user dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                    <p style="padding:3px 20px">您好，@User.Identity.GetUserName()</p>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    @Html.ActionLink(" 管理", "UserProfile", "Account", routeValues: null, htmlAttributes: new { title = "Manage", @class="fa fa-cog" })
+                </li>
+                <li class="divider"></li>
+                <li><a class="fa fa-upload" href="~/Video/Upload"> 上传视频</a></li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i> 退出</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav">
+        @*<li><a id="registerLink" href="~/Account/Register">注册<span class="glyphicon glyphicon-user"></span></a></li>*@
+        <li><a id="loginLink" href="~/Account/Login">登录<span class="glyphicon glyphicon-log-in"></span></a></li>
+        <li><a id="UploadBtn" href="~/Video/Upload" class="btn btn-success">上传</a></li>
+    </ul>
+}

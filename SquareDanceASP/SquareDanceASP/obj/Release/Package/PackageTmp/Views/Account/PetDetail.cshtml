@@ -1,0 +1,115 @@
+﻿@model SquareDanceASP.Models.PetModel
+
+@{
+    ViewBag.Title = "PetDetail";
+}
+
+<h2>@Model.Name</h2>
+
+<br />
+
+<div class="panel-group">
+    <div id="profilePanel" class="panel panel-success">
+        <div class="panel-heading">
+            简介
+        </div>
+        <div class="panel-body">
+            @Model.Description
+        </div>
+    </div>
+
+    <div id="imagesPanel" class="panel panel-success">
+        <div class="panel-heading">
+            照片
+        </div>
+        <div class="panel-body">
+            <div id="imagesDetail">
+                @if (Model.PetImages != null && Model.PetImages.Count > 0)
+                {
+                    @Html.Action("_PetImagesDetail", "Account", new { id = Model.Id })
+                }
+            </div>
+
+            <div class="row" style="padding:20px">
+                <div class="jumbotron">
+                    <form action="@Url.Action("AddImagesToPet", "Account")" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm" style="background-color:white; border:1px solid #CCC;">
+                        @Html.TextBoxFor(x => x.Id, new { @class = "hidden" })
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="detailPanel" class="panel panel-success">
+        <div class="panel-heading">
+            <div style="width:50%;display:inline-block;">
+                <span>细节</span>
+            </div><div style="width:50%;display:inline-block;text-align:right">
+                        <button class="btn btn-info btn-sm" title="编辑宠物详细的信息" data-toggle="modal" data-target="#editPetModal">编辑</button>
+                  </div>
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6">
+                <div>
+                    @Html.LabelFor(x => x.Sex):
+                    @Html.DisplayTextFor(x => x.Sex)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.Breed):
+                    @Html.DisplayTextFor(x => x.Breed)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.Weight):
+                    @Html.DisplayTextFor(x => x.Weight)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.Years):
+                    @Html.DisplayTextFor(x => x.Years)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.Spayed)
+                    @Html.DisplayTextFor(x => x.Spayed)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.Microchipped)
+                    @Html.DisplayTextFor(x => x.Microchipped)
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    @Html.LabelFor(x => x.WellDogs)
+                    @Html.DisplayTextFor(x => x.WellDogs)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.WellCats)
+                    @Html.DisplayTextFor(x => x.WellCats)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.WellChild)
+                    @Html.DisplayTextFor(x => x.WellChild)
+                </div>
+                <div>
+                    @Html.LabelFor(x => x.HouseTrained)
+                    @Html.DisplayTextFor(x => x.HouseTrained)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editPetModal" role="dialog">
+    <div class="modal-dialog">
+        @Html.Action("_EditPet","Account", new { model = Model })
+    </div>
+</div>
+
+<script>
+    var petId = @Html.Raw(Json.Encode(Model.Id));
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/image-model-silder.js")
+    @Scripts.Render("~/Scripts/squareDance.petDetail.js")
+    @Scripts.Render("~/bundles/dropzone")
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,42 @@
+﻿@model SquareDanceASP.Models.UserProfileModel
+
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+    </div>
+    @using (@Html.BeginForm("UserProfileEdit", "Account", FormMethod.Post))
+    {
+        <div class="center">
+            <div class="hidden">
+                @Html.TextBoxFor(x => x.UserId)
+            </div>
+            <div>
+                @Html.LabelFor(x => x.Name)
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+            </div>
+            <div style="margin-top:10px;">
+                @Html.LabelFor(x => x.Address)
+                @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Address, null, new { @class = "text-danger" })
+            </div>
+            <div style="margin-top:10px;">
+                @Html.LabelFor(x => x.Phone)
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Phone, null, new { @class = "text-danger" })
+            </div>
+            <div style="margin-top:10px;">
+                @Html.LabelFor(x => x.WeChat)
+                @Html.TextBoxFor(x => x.WeChat, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.WeChat, null, new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="updateBtn" type="submit" class="btn btn-success">保存</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        </div>
+    }
+</div>
+

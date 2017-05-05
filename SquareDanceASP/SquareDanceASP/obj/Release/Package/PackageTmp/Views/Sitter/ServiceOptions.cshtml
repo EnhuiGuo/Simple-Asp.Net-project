@@ -1,0 +1,118 @@
+﻿@model SquareDanceASP.Models.ServiceOptionsModel
+
+@{
+    ViewBag.Title = "ServiceOptions";
+}
+
+<h2>ServiceOptions</h2>
+
+@using (@Html.BeginForm("ServiceOptions", "Sitter", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container" style="padding:0px;">
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>白天照顾狗狗的数量</h4>
+                <p>
+                    您最多白天照顾狗狗的数量？
+                </p>
+            </div>
+            <div class="col-xs-5" style="margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.DayCareDogs, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.DayCareDogs, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>PottyBreaks</h4>
+                <p>
+                    对于客户的狗狗，您每天可以提供几次厕所服务？
+                </p>
+            </div>
+            <div class="col-xs-5" style="margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.PottyBreaks, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.PottyBreaks, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DogWalkingTime</h4>
+                <p>
+                    每次遛狗您可以遛多长时间？
+                </p>
+            </div>
+            <div class="col-xs-5" style="margin-top:10px;margin-bottom:20px;">
+                <div class="pull-right">
+                    <div class="input-group">
+                        <span class="input-group-addon fa fa-cny yuan-icon" style="display:table-cell;"></span>
+                        @Html.TextBoxFor(x => x.DogWalkingTime, new { @class = "form-control", @type = "number", @style = "width:80px;" })
+                    </div>
+                    <span>
+                        @Html.ValidationMessageFor(x => x.DogWalkingTime, null, new { @class = "text-danger" })
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>Flexible</h4>
+                <p>
+                    提供的信息是灵活性的么？
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.Flexible)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DropInVisits</h4>
+                <p>
+                    DogBoarding DogBoarding DogBoarding DogBoarding DogBoarding
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.DropInVisits)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>FullTimeWeek</h4>
+                <p>
+                    你可以工作在周末么？
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.FullTimeWeek)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <input class="col-xs-11 btn btn-info" type="submit" value="next" />
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

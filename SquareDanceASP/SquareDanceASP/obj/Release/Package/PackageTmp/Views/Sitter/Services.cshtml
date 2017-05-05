@@ -1,0 +1,86 @@
+﻿@model SquareDanceASP.Models.ServiceModel
+
+@{
+    ViewBag.Title = "Services";
+}
+
+<h2>Services</h2>
+
+@using (@Html.BeginForm("Services", "Sitter", FormMethod.Post))
+{
+    <div class="container" style="padding:0px;">
+        @Html.HiddenFor(m => m.UserId)
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>在家寄养</h4>
+                <p>
+                    客户的宠物在我家过夜照顾
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.DogBoarding)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>去照顾</h4>
+                <p>
+                    去客户的家里过夜照顾他的宠物
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.HouseSitting)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>Drop In Visits</h4>
+                <p>
+                    一天去客户家里若干次，每次用30分钟和客户的宠物玩耍
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.DropInVisits)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DogWalking</h4>
+                <p>
+                    去客户的家里接到宠物然后遛狗30分钟
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.DogWalking)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-11 table-bordered pet-row">
+            <div class="col-xs-7">
+                <h4>DoggyDayCare</h4>
+                <p>
+                    在自己家里照顾客人的宠物，时间是早上7点到下午6点。不用过夜。
+                </p>
+            </div>
+            <div class="col-xs-5" style="text-align:right;margin-top:10px;margin-bottom:20px;">
+                <label class="switch">
+                    @Html.CheckBoxFor(x => x.DoggyDayCare)
+                    <div class="slider round"></div>
+                </label>
+            </div>
+        </div>
+        <input class="col-xs-11 btn btn-info" type="submit" value="next" />
+    </div>
+}
+

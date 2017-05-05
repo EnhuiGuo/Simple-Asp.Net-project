@@ -1,0 +1,39 @@
+﻿@model SquareDanceASP.Models.UserProfileModel
+
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+    </div>
+    <div class="modal-body">
+        <div class="center">
+            <div style="margin-top:10px;">
+                <label>产品名称</label>
+                <input id="picName" class="form-control" />
+            </div>
+            <div style="margin-top:10px;">
+                <label>产品介绍</label>
+                <textarea id="picDescription" class="form-control"></textarea>
+            </div>
+
+            <div id="imgGallery" style="margin-top:10px;max-width:280px;">
+            </div>
+
+            <div style="margin-top:10px">
+                <div id="picGroup" class="input-group">
+                    <label class="input-group-btn">
+                        <span id="uploadImageBtn" class="btn btn-primary">
+                            上传图片&hellip; <input type="file" id="fileUpload" style="display:none" name="uploadFile" multiple>
+                        </span>
+                    </label>
+                    <input id="picName" type="text" class="form-control" style="max-width:184px;" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="saveItemBtn" type="button" class="btn btn-danger">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+</div>
